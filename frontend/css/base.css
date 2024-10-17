@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+  flex-direction: column;
+  padding-inline: 3rem;
+  padding-block: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

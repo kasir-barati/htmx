@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <script src="./htmx.2.0.3.min.js"></script>
+    <link href="./index.css" rel="stylesheet" />
+    <base href="http://localhost:3000" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Todo app</h1>
+      <select id="theme">
+        <option value="dark" selected>Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </header>
+    <main class="main">
+      <section class="add-todo">
+        <h2>Add new todo</h2>
+        <form class="add-todo__form" hx-post="/todos" hx-target="#todo-list">
+          <p>
+            <label for="newTodo">Todo</label>
+            <input type="text" name="newTodo" id="newTodo" />
+          </p>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+      <section class="todos">
+        <h2>Todos</h2>
+        <ul hx-get="/todos" hx-trigger="load" id="todo-list"></ul>
+      </section>
+    </main>
+  </body>
+</html>
