@@ -1,6 +1,6 @@
 # Todo
 
-A simple Fullstack app written in ExpressJS + htmx. It is really fun to work with htmx.
+A simple Fullstack app written in ExpressJS + htmx. It is really fun to work with htmx. **I also wrote a dev.to post about it. You can read it [here](https://dev.to/kasir-barati/htmx-and-expressjs-36dk)**.
 
 > [!NOTE]
 >
