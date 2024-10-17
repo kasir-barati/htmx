@@ -16,13 +16,13 @@ export function buildTodosList(todos) {
           type="checkbox"
           id="todo_${todo.id}"
           ${todo.completed ? "checked" : ""}
-          hx-put="/todos/${todo.id}"
+          hx-put="http://localhost:3000/todos/${todo.id}"
           hx-trigger="click"
           hx-target="#todo-list"
         />
         <label for="todo_${todo.id}">${todo.title}</label>
         <button
-          hx-delete="/todos/${todo.id}"
+          hx-delete="http://localhost:3000/todos/${todo.id}"
           hx-trigger="click"
           hx-target="#todo-list"
         >X</button>
