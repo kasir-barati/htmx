@@ -1,0 +1,347 @@
+@import url(./css/shared.css);
+
+body {
+  overflow: hidden;
+}
+
+@keyframes revolution {
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--bg-color);
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: var(--bg-color);
+  }
+}
+
+.main {
+  --block-size-of-the-rest: calc(
+    var(--body-gap) + var(--header-block-size) + (var(--body-padding-block) * 2)
+  );
+  --background-inline-position: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  block-size: calc(100vh - var(--block-size-of-the-rest));
+  background-image: url(./assets/register-bg.png);
+  background-repeat: no-repeat;
+  background-position: var(--background-inline-position) center;
+  background-size: contain;
+  box-shadow: 0 0 2rem 2rem var(--bg-color) inset,
+    0 0 2rem 2rem var(--bg-color) inset;
+  position: relative;
+
+  &::after,
+  &::before {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    block-size: 100%;
+    inline-size: 2rem;
+    box-shadow: 0 0 2rem 2rem var(--bg-color) inset,
+      0 0 2rem 2rem var(--bg-color);
+  }
+  &::before {
+    inset-inline-start: calc(var(--background-inline-position));
+  }
+  &::after {
+    inset-inline-start: calc(var(--background-inline-position) + 23rem);
+  }
+  @media screen and (width < 69rem) {
+    --background-inline-position: 30rem;
+  }
+  @media screen and (width < 59rem) {
+    --background-inline-position: 20rem;
+  }
+  @media screen and (width < 49rem) {
+    --background-inline-position: 10rem;
+  }
+  @media screen and (width < 39rem) {
+    background-position: center center;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+  .blur-background {
+    z-index: 1;
+    background-color: rgba(123, 123, 123, 0.3);
+    backdrop-filter: blur(0.5rem);
+    inline-size: 40%;
+    text-align: center;
+    border-inline: 1px solid orangered;
+    border-block: 1px solid orangered;
+    border-radius: 2rem;
+    block-size: 60%;
+
+    @media screen and (width < 79rem) {
+      inline-size: 60%;
+    }
+    @media screen and (width < 49rem) {
+      inline-size: 100%;
+    }
+  }
+  .main__header {
+    padding-block: 1rem;
+    position: relative;
+
+    nav {
+      a {
+        position: absolute;
+        display: block;
+        inset-block-start: 0rem;
+        inset-inline-end: 0rem;
+        padding-block: 0.5rem;
+        padding-inline: 1.5rem;
+        border-radius: 0 2rem / 0 2rem;
+        background: linear-gradient(
+          125deg,
+          transparent,
+          turquoise,
+          orangered,
+          transparent
+        );
+        transition: all 0.3s linear 0s;
+
+        &:hover {
+          text-shadow: 0.125rem 0.125rem 0.5rem black;
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+  .main__form {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
+    input {
+      inline-size: 100%;
+      background-color: transparent;
+      border-block-end: 2px solid black;
+      padding-block: 0.5rem;
+      font-size: 1.25rem;
+
+      &:focus-visible {
+        outline-style: none;
+      }
+    }
+    button[type="submit"] {
+      inline-size: 100%;
+      padding-block: 0.5rem;
+      background-color: var(--bg-color);
+      color: orangered;
+      border-radius: var(--border-radius);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s linear 0s;
+
+      &:hover {
+        box-shadow: 0.5rem 0.5rem 1rem orangered;
+      }
+    }
+  }
+}
+
+.left {
+  position: absolute;
+  inset-block-end: 1rem;
+  inset-inline-start: 20rem;
+
+  @media screen and (width < 48rem) {
+    inset-inline-start: 5rem;
+  }
+}
+.solar-system {
+  /** colors **/
+  --solar-system-red: rgba(255, 0, 0, 0.9);
+  --solar-system-magenta: rgba(255, 0, 255, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+  transform: skewX(-45deg);
+
+  .solar-system__sun {
+    --star-radius-sun: 10.8803rem;
+
+    /* To keep the sun on top of planet's orbit line */
+    z-index: 100;
+    aspect-ratio: 1;
+    inline-size: var(--star-radius-sun);
+    border-radius: 100%;
+    background: linear-gradient(135deg, orangered 20%, transparent);
+    filter: drop-shadow(0px 0px 2px var(--solar-system-red)) blur(1px);
+    transform: skewX(45deg);
+
+    @media screen and (width < 48rem) {
+      inline-size: calc(var(--star-radius-sun) / 2);
+    }
+  }
+
+  div {
+    --solar-system-border-width: 0.125rem;
+
+    position: absolute;
+    z-index: 98;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border-inline-width: var(--solar-system-border-width);
+    border-inline-style: solid;
+    border-inline-color: var(--solar-system-red);
+    border-block-width: var(--solar-system-border-width);
+    border-block-style: solid;
+    border-block-color: rgba(0, 0, 255, 0.25);
+
+    span:not(.solar-system__sun) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 99;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      background: transparent;
+      border-width: var(--solar-system-border-width);
+      border-style: solid;
+      /* This is saying the border top right and bottom should be magenta and border-left should be red */
+      border-color: var(--solar-system-magenta) var(--solar-system-magenta)
+        var(--solar-system-magenta) var(--solar-system-red);
+
+      &::after {
+        content: "";
+        aspect-ratio: 1;
+        inline-size: 40%;
+        border-radius: 100%;
+        filter: drop-shadow(0 0 0.3rem var(--solar-system-magenta))
+          blur(0.03125rem);
+      }
+    }
+  }
+
+  .solar-system__mercury-trajectory {
+    --planet-radius-mercury: 1.5248rem;
+    --planet-trajectory-mercury: 12.6928rem;
+    --solar-system-margin-mercury: 2.375rem;
+
+    inline-size: var(--planet-trajectory-mercury);
+    animation: revolution 43.9845s linear infinite;
+
+    @media screen and (width < 48rem) {
+      inline-size: calc(var(--planet-trajectory-mercury) / 2);
+    }
+    .solar-system__mercury-trajectory__mercury {
+      inline-size: var(--planet-radius-mercury);
+      inset-block-start: var(--solar-system-margin-mercury);
+      animation: revolution 29.3225s linear infinite;
+
+      &::after {
+        background: darkgray;
+      }
+      @media screen and (width < 48rem) {
+        inline-size: calc(var(--planet-radius-mercury) / 2);
+        inset-block-start: calc(var(--solar-system-margin-mercury) - 1.25rem);
+      }
+    }
+  }
+
+  .solar-system__venus-trajectory {
+    --planet-radius-venus: 3.7824rem;
+    --planet-trajectory-venus: 16.0678rem;
+    --solar-system-margin-venus: 0.9375rem;
+
+    inline-size: var(--planet-trajectory-venus);
+    animation: revolution 112.3335s linear infinite;
+
+    @media screen and (width < 48rem) {
+      inline-size: calc(var(--planet-trajectory-venus) / 2);
+    }
+    .solar-system__venus-trajectory__venus {
+      --sun-lounge: rgb(215, 129, 52);
+
+      inline-size: var(--planet-radius-venus);
+      inset-block-start: var(--solar-system-margin-venus);
+      animation: revolution 121.513s linear infinite;
+
+      &::after {
+        background: var(--sun-lounge);
+      }
+
+      @media screen and (width < 48rem) {
+        inline-size: calc(var(--planet-radius-venus) / 2);
+        inset-block-start: calc(var(--solar-system-margin-venus) - 0.5625rem);
+      }
+    }
+  }
+
+  .solar-system__earth-trajectory {
+    --planet-radius-earth: 3.9819rem;
+    --planet-trajectory-earth: 20.7553rem;
+    --solar-system-margin-earth: 2.1875rem;
+
+    inline-size: var(--planet-trajectory-earth);
+    animation: revolution 182.6211s linear infinite;
+
+    @media screen and (width < 48rem) {
+      inline-size: calc(var(--planet-trajectory-earth) / 2);
+    }
+    .solar-system__earth-trajectory__earth {
+      inline-size: var(--planet-radius-earth);
+      inset-block-start: var(--solar-system-margin-earth);
+      animation: revolution 0.4874s linear infinite;
+
+      &::after {
+        background: blue;
+        animation: blink 2s linear infinite;
+      }
+
+      @media screen and (width < 48rem) {
+        inline-size: calc(var(--planet-radius-earth) / 2);
+        inset-block-start: calc(var(--solar-system-margin-earth) - 1.1875rem);
+      }
+    }
+  }
+
+  .solar-system__mars-trajectory {
+    --planet-radius-mars: 2.1184rem;
+    --planet-trajectory-mars: 27.8803rem;
+    --solar-system-margin-mars: 18.25rem;
+
+    inline-size: var(--planet-trajectory-mars);
+    animation: revolution 343.4425s linear infinite;
+
+    @media screen and (width < 48rem) {
+      inline-size: calc(var(--planet-trajectory-mars) / 2);
+    }
+    .solar-system__mars-trajectory__mars {
+      --rusty-red: rgb(175, 47, 13);
+      inline-size: var(--planet-radius-mars);
+      inset-block-start: var(--solar-system-margin-mars);
+      animation: revolution 0.5128s linear infinite;
+
+      &::after {
+        background-color: var(--rusty-red);
+      }
+
+      @media screen and (width < 48rem) {
+        inline-size: calc(var(--planet-radius-mars) / 2);
+        inset-block-start: calc(var(--solar-system-margin-mars) - 14.625rem);
+      }
+    }
+  }
+}

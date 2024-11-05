@@ -3,15 +3,66 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  block-size: var(--header-block-size);
 
   h1 {
     text-shadow: 2px 2px 0.5rem orangered;
     text-transform: capitalize;
+    font-size: 2rem;
   }
+  .header__main-nav {
+    block-size: 100%;
 
+    ul {
+      gap: 0.5rem;
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      block-size: 100%;
+      list-style-type: none;
+
+      li {
+        border-radius: var(--border-radius);
+        color: black;
+        transition: all 0.3s linear 0s;
+        box-shadow: 0 0 0.5rem 0.25rem var(--bg-color) inset,
+          0 0 0.5rem 0.25rem var(--bg-color) inset;
+
+        &:nth-child(even) {
+          background: linear-gradient(
+            125deg,
+            transparent,
+            turquoise,
+            orangered,
+            transparent
+          );
+        }
+        &:nth-child(odd) {
+          background: linear-gradient(
+            -125deg,
+            transparent,
+            turquoise,
+            orangered,
+            transparent
+          );
+        }
+        &:hover {
+          outline: 1px solid orangered;
+        }
+        a {
+          align-content: center;
+          block-size: 100%;
+          padding-inline: 1rem;
+          text-align: center;
+          display: block;
+        }
+      }
+    }
+  }
   #theme {
     -webkit-appearance: none;
     appearance: none;
+    block-size: 100%;
     font-weight: bold;
     padding-block: 1rem;
     padding-inline: 1rem;

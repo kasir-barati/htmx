@@ -1,10 +1,10 @@
 body {
   display: flex;
   justify-content: center;
-  gap: 2.25rem;
+  gap: var(--body-gap);
   flex-direction: column;
   padding-inline: 3rem;
-  padding-block: 1rem;
+  padding-block: var(--body-padding-block);
   background-color: var(--bg-color);
   color: var(--text-color);
 }
