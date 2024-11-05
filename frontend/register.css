@@ -133,10 +133,16 @@ body {
       background-color: transparent;
       border-block-end: 2px solid black;
       padding-block: 0.5rem;
+      padding-inline: 0.5rem;
       font-size: 1.25rem;
 
       &:focus-visible {
         outline-style: none;
+      }
+      &:is(:-webkit-autofill, :autofill) {
+        background: transparent !important;
+        box-shadow: 0 0 0 1000rem rgb(123, 123, 123, 0.7) inset;
+        border-block-end-color: turquoise !important;
       }
     }
     button[type="submit"] {
