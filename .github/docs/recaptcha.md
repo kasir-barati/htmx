@@ -117,6 +117,10 @@ Congrats, now you have a fully functional reCAPTCHA implementation in htmx, and 
 
 https://youtu.be/5gjeqTAn2vY
 
+## Dev.to
+
+https://dev.to/kasir-barati/implement-recaptcha-in-htmx-expressjs-4k1l
+
 ## Footnotes
 
 [^1]: **Credential stuffing**: when the attacker collects stolen account credentials.
