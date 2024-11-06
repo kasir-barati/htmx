@@ -113,6 +113,10 @@
 
 Congrats, now you have a fully functional reCAPTCHA implementation in htmx, and your backend does not really mater since their logic is what they should take care of it. But here we used the lovely ExpressJS.
 
+## YouTube
+
+https://youtu.be/5gjeqTAn2vY
+
 ## Footnotes
 
 [^1]: **Credential stuffing**: when the attacker collects stolen account credentials.
