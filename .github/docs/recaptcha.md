@@ -115,5 +115,5 @@ Congrats, now you have a fully functional reCAPTCHA implementation in htmx, and 
 
 ## Footnotes
 
-- [^1]: **Credential stuffing**: when the attacker collects stolen account credentials.
-- [^2]: **Verdict**: An opinion/decision made after judging the facts that are given.
+[^1]: **Credential stuffing**: when the attacker collects stolen account credentials.
+[^2]: **Verdict**: An opinion/decision made after judging the facts that are given.

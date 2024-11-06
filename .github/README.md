@@ -1,10 +1,21 @@
 # Todo
 
 A simple Fullstack app written in ExpressJS + htmx. It is really fun to work with htmx. **I also wrote a dev.to post about it. You can read it [here](https://dev.to/kasir-barati/htmx-and-expressjs-36dk)**.
+It has two main pages right now:
+
+- Index.
+- Register.
 
 > [!NOTE]
 >
 > But it also has its own downside. Like when your backend should serve other clients other than htmx, then what? because as you can see in my code I am returning HTML as response. But nonetheless it is a very intriguing approach to developing web applications.
+
+## Docs
+
+Please read in the order defined here, unless you're no beginner in htmx.
+
+1. [htmx intro](./docs/what-is-the-fuss.md).
+2. [reCAPTCHA](./docs/recaptcha.md).
 
 ## How to run it
 
