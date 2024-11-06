@@ -21,8 +21,9 @@ Please read in the order defined here, unless you're no beginner in htmx.
 
 1. `cd backend`.
 2. `pnpm install`.
-3. `pnpm dev`.
-4. You can open one of the following files in your browser then:
+3. `cp .env.example .env` and replace the values with what should they actually be.
+4. `pnpm dev`.
+5. You can open one of the following files in your browser then:
    - `frontend/index.html`.
    - `frontend/register.html`.
 
