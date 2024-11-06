@@ -30,6 +30,7 @@
           class="add-todo__form"
           hx-post="http://localhost:3000/todos"
           hx-target="#todo-list"
+          hx-indicator="#creatingNewTodoSpinner"
         >
           <p>
             <label for="newTodo">Todo</label>
@@ -39,7 +40,13 @@
         </form>
       </section>
       <section class="todos">
-        <h2>Todos</h2>
+        <h2>
+          Todos
+          <span
+            id="creatingNewTodoSpinner"
+            class="htmx-indicator loader"
+          ></span>
+        </h2>
         <ul
           hx-get="http://localhost:3000/todos"
           hx-trigger="load"

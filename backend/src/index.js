@@ -2,44 +2,19 @@
 
 import express from "express";
 import cors from "cors";
-import { buildTodosList } from "./build-todos-list.js";
-import { todoRepo } from "./todos.js";
+import { todoRoutes } from "./routes/todos.route.js";
+import { userRoutes } from "./routes/user.route.js";
+import { loadEnv } from "./utils/env.util.js";
+
+loadEnv();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
-
-app.post("/todos", (req, res) => {
-  /**@type {{newTodo: string }} */
-  const { newTodo } = req.body;
-
-  const todos = todoRepo.create(newTodo);
-
-  res.set("content-type", "text/html");
-  res.status(201).send(buildTodosList(todos));
-});
-app.get("/todos", (req, res) => {
-  const todos = todoRepo.read();
-
-  res.set("content-type", "text/html");
-  res.status(200).send(buildTodosList(todos));
-});
-app.put("/todos/:id", (req, res) => {
-  const id = req.params.id;
-  const todos = todoRepo.update(id);
-
-  res.set("content-type", "text/html");
-  res.status(200).send(buildTodosList(todos));
-});
-app.delete("/todos/:id", (req, res) => {
-  const id = req.params.id;
-  const todos = todoRepo.delete(id);
-
-  res.set("content-type", "text/html");
-  res.status(200).send(buildTodosList(todos));
-});
+app.use("/todos", todoRoutes);
+app.use("/users", userRoutes);
 
 app.listen(
   3000,

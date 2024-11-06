@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo -- Register</title>
     <script src="./htmx.2.0.3.min.js"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LekL3YqAAAAADkqoVeXZ5qXPz8vhi94czjufdR_"></script>
     <link href="./register.css" rel="stylesheet" />
     <!-- To fix htmx:invalidPath you do not need <base href="http://localhost:3000" /> -->
     <meta name="htmx-config" content='{"selfRequestsOnly": false}' />
+    <script src="./register.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -20,14 +22,14 @@
     <main class="main">
       <div class="blur-background">
         <header class="main__header">
-          <h1>Login</h1>
+          <h1>Register</h1>
           <nav>
             <a href="index.html" aria-label="Close and return to index page">
               &cross;
             </a>
           </nav>
         </header>
-        <form class="main__form">
+        <form class="main__form" hx-post="http://localhost:3000/users/register">
           <p>
             <input type="email" required placeholder="Email" name="email" />
           </p>
@@ -40,7 +42,16 @@
             />
           </p>
           <p>
-            <button type="submit">Login</button>
+            <input
+              type="hidden"
+              name="googleRecaptchaToken"
+              id="googleRecaptchaToken"
+            />
+            <!-- NOTE: This LOGIN value is the same value that we send to Google API when we're calling grecaptcha.enterprise.execute -->
+            <input type="hidden" name="recaptchaAction" value="REGISTER" />
+          </p>
+          <p>
+            <button type="submit">Sign up!</button>
           </p>
         </form>
       </div>

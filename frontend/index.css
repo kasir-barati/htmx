@@ -63,8 +63,14 @@
   .todos {
     display: flex;
     flex-direction: column;
+    align-content: center;
     gap: 1rem;
 
+    > h2 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
     #todo-list {
       list-style-type: none;
       display: flex;
@@ -99,5 +105,46 @@
         }
       }
     }
+  }
+}
+
+.loader {
+  inline-size: 3rem;
+  height: 3rem;
+  display: inline-block;
+  position: relative;
+  border-inline-width: 0.1875rem;
+  border-block-width: 0.1875rem;
+  border-inline-style: solid;
+  border-block-style: solid;
+  border-block-start-color: #de3500;
+  border-inline-end-color: #0000;
+  border-block-end-color: #fff;
+  border-inline-start-color: #0000;
+  border-radius: 100%;
+  animation: 1s rotate linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    position: absolute;
+    border-inline: 0.625rem solid transparent;
+    border-block: 0.625rem solid transparent;
+    border-block-end-color: #fff;
+    transform: translate(-10px, 19px) rotate(-35deg);
+  }
+  &::after {
+    transform: translate(32px, 3px) rotate(-35deg);
+    border-block-start-color: #de3500;
+    border-inline-end-color: #0000;
+    border-block-end-color: #0000;
+    border-inline-start-color: #0000;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
   }
 }

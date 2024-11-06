@@ -10,7 +10,7 @@ export function buildTodosList(todos) {
   const sortedTodos = todos.sort((a, b) => a.title.localeCompare(b.title));
 
   return sortedTodos.reduce((accumulator, todo) => {
-    accumulator += `
+    accumulator += /*html*/ `
       <li>
         <input
           type="checkbox"
@@ -25,7 +25,9 @@ export function buildTodosList(todos) {
           hx-delete="http://localhost:3000/todos/${todo.id}"
           hx-trigger="click"
           hx-target="#todo-list"
-        >X</button>
+        >
+          &cross;
+        </button>
       </li>
     `;
 

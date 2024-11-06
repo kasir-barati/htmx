@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "src/index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "node ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^5.11.0",
     "cors": "^2.8.5",
     "express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "dotenv": "^16.4.5"
   }
 }
